@@ -1,0 +1,131 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+table {
+	width: 800px;
+
+	margin: 200px auto;
+
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #525151;
+	color: #fff;
+}
+
+td {
+	width: 160px;
+	height: 40px;
+	text-align: center;
+	border: 1px solid #CCC6C6;
+	margin-top: 50px;
+}
+
+.upBtn,.downBtn {
+	width: 10px;
+	height: 10px;
+
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+}
+
+.upBtn {
+	position: relative;
+	left: 30px;
+	top: -23px;
+
+	border-bottom: 10px solid #fff;
+}
+
+.downBtn {
+	position: relative;
+	left: 20px;
+	top:  22px;
+
+	border-top: 10px solid #fff;
+}
+.xin{
+	position: relative;
+	top: 50px;
+}
+.one,.two,.three,.four,.five{
+    padding: 10px;
+    border: 0px;
+    margin: auto;
+    text-align: center;
+}
+.inside{
+	position: relative;
+    top: -93%;
+    left: -9%;
+    /* background-color: #ffffff; */
+    width: 60%;
+}
+
+.xin{
+    position: relative;
+    left: 358px;
+    width: 500px;
+    height: 500px;
+}
+.quite{
+   position: relative;
+    top: 425px;
+    left: 305px;
+}
+.head{
+	position: relative;
+	top: 350px;
+	left: 353px;
+	width: 799px;
+}
+.name{
+	position: relative;
+	top: -17px;
+	left: 47px;
+}
+.y{
+    position: relative;
+    top: -40px;
+    left: 221px;
+}
+.y1{
+    position: relative;
+	top: -59px;
+    left: 266px;
+
+}
+.h2{
+	position: relative;
+    top: -78px;
+    left: 314px;
+}
+
+.score{
+	position: relative;
+    top: -97px;
+    left: 363px;
+}
+.photo1{
+    position: relative;
+    left: 905px;
+    top: 226px;
+    width: 71px;
+    height: 33px;
+    background-color: rgb(0, 195, 255);
+}
+.button{
+    position: relative;
+	left: 991px;
+    top: 197px;
+    width: 77px;
+    height: 35px;
+}
+
+#add{
+	display: none;
+}
