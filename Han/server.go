@@ -19,6 +19,8 @@ func Start() error {
 		ygh.POST("/useralltoke",Getalltoken)
 		ygh.POST("/gettime", GetnewTransfertime)
 		ygh.POST("/getbalaceUser",GetbalanceUser)
+		ygh.POST("/todaydata",Todaydate)
+		ygh.POST("/alldata",Alldate)
 	}
 	err := r.Run("127.0.0.1:1111")
 	return err
@@ -31,7 +33,7 @@ func tohtml(c *gin.Context, data interface{}) {
 	})
 }
 
-func respError(c *gin.Context, msg interface{}) {
+func returnError(c *gin.Context, msg interface{}) {
 	c.JSON(200, gin.H{
 		"code":    1,
 		"message": msg,

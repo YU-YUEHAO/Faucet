@@ -1,6 +1,7 @@
 package connectgeth
 
 import (
+
 	faucet "YU/Smart"
 	"context"
 	"crypto/ecdsa"
@@ -43,8 +44,8 @@ func Getaccout() (*ecdsa.PrivateKey, common.Address) {
 	return key.PrivateKey, key.Address
 
 }
-func Getsmartcontract() *faucet.FaucetContract {
-	ins, err := faucet.NewFaucetContract(common.HexToAddress("0xC1Ad4254cd0F7c5c784287A6EeC55Ec0eb2D3613"), client)
+func Getsmartcontract() *faucet.Faucet{
+	ins, err := faucet.NewFaucet(common.HexToAddress("0xCb90c08f7b3F7a21D8b2e6F3f3faDC5CD56c3EA5"), client)
 	if err != nil {
 		panic(err)
 	}
@@ -53,12 +54,12 @@ func Getsmartcontract() *faucet.FaucetContract {
 
 
 //进行转账交易
-func Dotransfer(ins *faucet.FaucetContract,address common.Address,ops *bind.TransactOpts) *types.Transaction{
+func Dotransfer(ins *faucet.Faucet,address common.Address,ops *bind.TransactOpts) (*types.Transaction,error){
    transfermessage,err :=ins.Dotransfer(ops,address)
 	if err!=nil {
 		panic(err)
 	}
-	return transfermessage
+	return transfermessage,err
 }
 //获取gasprice
 func GetgasPrice() (*big.Int, error) {
@@ -82,7 +83,7 @@ func Getnonce(address common.Address) (uint64, error) {
 }
 
 //获取用户当天得到的货币数量
-func Gettodaytoken(ins *faucet.FaucetContract,address common.Address,header *types.Header) *big.Int {
+func Gettodaytoken(ins *faucet.Faucet,address common.Address,header *types.Header) *big.Int {
 	opts := bind.CallOpts{
 		Pending:     true,
 		From:        address,
@@ -97,7 +98,7 @@ func Gettodaytoken(ins *faucet.FaucetContract,address common.Address,header *typ
 }
 
 //获取用户账户得币总数量
-func Gettransfercount(ins *faucet.FaucetContract,address common.Address,header *types.Header) *big.Int {
+func Gettransfercount(ins *faucet.Faucet,address common.Address,header *types.Header) *big.Int {
 	opts := bind.CallOpts{
 		Pending:     true,
 		From:        address,
@@ -112,7 +113,7 @@ func Gettransfercount(ins *faucet.FaucetContract,address common.Address,header *
 }
 
 //获取账户最新交易时间
-func Gettransfertime(ins *faucet.FaucetContract,address common.Address,header *types.Header) *big.Int {
+func Gettransfertime(ins *faucet.Faucet,address common.Address,header *types.Header) *big.Int {
 	opts := bind.CallOpts{
 		Pending:     true,
 		From:        address,
@@ -127,7 +128,7 @@ func Gettransfertime(ins *faucet.FaucetContract,address common.Address,header *t
 }
 
 //获取水龙头合约余额
-func GetBalancecontract (ins *faucet.FaucetContract,address common.Address,header *types.Header) (*big.Int){
+func GetBalancecontract (ins *faucet.Faucet,address common.Address,header *types.Header) (*big.Int){
 	opts := bind.CallOpts{
 		Pending:     true,
 		From:        address,
@@ -144,7 +145,7 @@ func GetBalancecontract (ins *faucet.FaucetContract,address common.Address,heade
 
 
 //获取本用户余额
-func GetBalanceUser(ins *faucet.FaucetContract, address common.Address, header *types.Header) (*big.Int) {
+func GetBalanceUser(ins *faucet.Faucet, address common.Address, header *types.Header) (*big.Int) {
 	opts := bind.CallOpts{
 		Pending:     true,
 		From:        address,
